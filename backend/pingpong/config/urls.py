@@ -15,8 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from django.shortcuts import redirect
+from . import views
 
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
+    # path('', lambda request: redirect('login/', permanent=False)),
+    # path('', include('oauth.urls')),  # your_app_name을 실제 앱
 ]
